@@ -1,7 +1,5 @@
-# FULL_ADDER_SUBTRACTOR
-
-Implementation-of-Full-Adder-and-Full-subtractor-circuit
-
+**NAME:T.SANJAI
+REGISTER NUMBER:24900899**
 **AIM:**
 
 To design a Full Adder and Full Subtractor circuit and verify its truth table in Quartus using Verilog programming.
@@ -38,18 +36,70 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
-**Procedure**
+![Screenshot 2024-11-20 135116](https://github.com/user-attachments/assets/b2ef76cc-7415-4ba6-bd57-33836d2d77ab)
 
-Write the detailed procedure here
+
+**Procedure**
+FULL ADDER
+
+A full adder is a digital circuit that adds three one-bit binary numbers to produce a two-bit output. The procedure for a full adder is as follows: 
+The first two inputs are A and B, and the third input is an input carry as C-in. 
+The output carry is designated as C OUT and the normal output is designated as S. 
+A full adder circuit is implemented using two XOR gates, two AND gates, and an OR gate. 
+Full subtractor
+A full subtractor performs the subtraction of a given binary bit and generates outputs as differences and borrow. The procedure for a full subtractor is as follows: 
+To perform subtraction, use the 2's complements to convert the subtraction to addition. 
+A full subtractor can be implemented using universal gates, such as NAND or NOR gates. 
+A total of 9 NAND/NOR gates are required to implement a full subtractor. 
+A full subtractor can be implemented as 2 half subtractors + OR gate. 
+
+
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+module fulladder(a,b,c,sum,carry);
+input a,b,c;
+output sum,carry;
+wire w1,w2,w3;
+assign sum=a^b^c;
+assign w1=a&b;
+assign w2=a&b;
+assign w3=a&b;
+assign carry=w1|w2|w3;
+endmodule
+module fullsub(a,b,bin,diff,borr);
+input a,b,bin;
+output diff,borr;
+wire w1,w2,w3,w4,w5,w6;
+xor g1(diff,a,b,bin);
+and g2(w4,w2,b);
+and g3(w5,w1,b);
+and g4(w6,b,bin);
+or g5(borr,w4,w5,w6);
+endmodule
 
 **RTL Schematic**
 
+**FULL ADDER**
+
+![WhatsApp Image 2024-11-20 at 1 55 05 PM (2)](https://github.com/user-attachments/assets/7e521768-ae73-497d-87b5-00ecca65b7cd)
+
+**FULL SUBTRACTOR**
+
+![WhatsApp Image 2024-11-20 at 1 34 35 PM](https://github.com/user-attachments/assets/841dbcee-e677-47bc-8d0a-da018fefa2d7)
+
+
+
 **Output Timing Waveform**
+
+**FULL ADDER**
+
+![WhatsApp Image 2024-11-20 at 1 55 04 PM (1)](https://github.com/user-attachments/assets/0f818eb7-dd37-43ca-a6f0-e215d62920c8)
+
+**FULL SUBTRACTOR**
+
+![WhatsApp Image 2024-11-20 at 1 34 35 PM (1)](https://github.com/user-attachments/assets/2949e9d7-b260-4a27-aeae-3b1751489c8f)
+
 
 **Result:**
 
