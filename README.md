@@ -1,6 +1,5 @@
-# FULL_ADDER_SUBTRACTOR
-
-Implementation-of-Full-Adder-and-Full-subtractor-circuit
+**NAME:T.SANJAI
+REGISTER NUMBER:24900899
 
 **AIM:**
 
@@ -37,19 +36,53 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+![Screenshot 2024-11-20 135116](https://github.com/user-attachments/assets/ffb663cc-5ecc-4f18-ad64-1ca60e5ef9e5)
 
 **Procedure**
+FULL ADDER
+A full adder is a digital circuit that adds three one-bit binary numbers to produce a two-bit output. The procedure for a full adder is as follows: 
+The first two inputs are A and B, and the third input is an input carry as C-in. 
+The output carry is designated as C OUT and the normal output is designated as S. 
+A full adder circuit is implemented using two XOR gates, two AND gates, and an OR gate. 
+FULL SUBRATCTOR
+A full subtractor performs the subtraction of a given binary bit and generates outputs as differences and borrow. The procedure for a full subtractor is as follows: 
+To perform subtraction, use the 2's complements to convert the subtraction to addition. 
+A full subtractor can be implemented using universal gates, such as NAND or NOR gates. 
+A total of 9 NAND/NOR gates are required to implement a full subtractor. 
+A full subtractor can be implemented as 2 half subtractors + OR gate. 
+
 
 Write the detailed procedure here
 
 **Program:**
+module fulladder(a,b,c,sum,carry);
+input a,b,c;
+output sum,carry;
+wire w1,w2,w3;
+assign sum=a^b^c;
+assign w1=a&b;
+assign w2=a&b;
+assign w3=a&b;
+assign carry=w1|w2|w3;
+endmodule
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+module fullsub(a,b,bin,diff,borr);
+input a,b,bin;
+output diff,borr;
+wire w1,w2,w3,w4,w5,w6;
+xor g1(diff,a,b,bin);
+and g2(w4,w2,b);
+and g3(w5,w1,b);
+and g4(w6,b,bin);
+or g5(borr,w4,w5,w6);
+endmodule
 
 **RTL Schematic**
+![WhatsApp Image 2024-11-20 at 1 55 05 PM (1)](https://github.com/user-attachments/assets/3dc00936-4f87-46b6-a667-3ced2c01f635)
+
 
 **Output Timing Waveform**
+![WhatsApp Image 2024-11-20 at 1 55 04 PM](https://github.com/user-attachments/assets/d6f4f468-ca17-4cee-9280-3f82d3f48f10)
 
 **Result:**
 
